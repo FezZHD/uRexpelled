@@ -1,2 +1,2 @@
 # uRexpelled
-web site for BSUIR
+web site for BSUIR. With bootstrap.
