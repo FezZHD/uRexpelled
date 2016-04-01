@@ -1,0 +1,188 @@
+*, body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000;
+  font-family: Helvetica, Tahoma, Verdana, Arial;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 2.6em;
+  line-height: 1em;
+  font-weight: 100;
+}
+
+a:link, a:visited, a:active {
+  color: #428bca;
+  text-decoration: underline;
+  font-size: 1em;
+  line-height: 1em;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+#page {
+  width: 100%;
+  background: #fff;
+}
+
+.middle {
+  width: 1000px;
+  margin: 0 auto;
+  display: table;
+  position: relative;
+}
+
+.header {width: 100%; min-height: 50px;}
+
+.header:before {
+  height: 50px;
+  background: #428bca;
+  width: 100%;
+  position: absolute;
+}
+
+.top_logo, .top_menu, .top_login {
+  float: left;
+  position:relative;
+}
+
+.top_logo {
+  font-size: 1.4em;
+  color:#fff;
+  line-height: 48px;
+  width: 15%;
+}
+
+.top_menu {
+  width: 70%;
+}
+
+.menu_opener {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  font-size: 1.2em;
+  display: none;
+}
+
+.top_login {
+  width: 10%;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  position: relative;
+  list-style: none;
+  float: left;
+  height: 100%;
+}
+
+.menu li.active:after {
+  content: " ";
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid;
+  border-color: transparent transparent #fff transparent;
+  bottom: -1px;
+  left: 48%;
+  z-index:5;
+
+}
+
+.menu li a {
+  font-size: 1.1em;
+  color: #ddd;
+  text-decoration: none;
+  line-height: 50px;
+  padding: 0px 10px;
+  text-shadow: 1px 1px 0px #000;
+  display: block;
+}
+
+.menu li a:hover {
+  color: #fff;
+}
+
+#page_body {
+  width: 100%;
+  box-shadow: 0 0 5px #000;
+  position: relative;
+  z-index: 4;
+}
+
+#page_body:before, .middle:before, .header:before {
+  display: table;
+  content: " ";
+}
+
+#page_body:after, .middle:after, .header:after {
+  clear: both;
+  content: " ";
+}
+
+.content, .side_bar {
+  float:left;
+}
+
+.content {
+  width: 70%;
+}
+
+.side_bar {
+  width: 25%;
+  margin-left: 4%;
+}
+
+.page_content {
+  margin: 20px 0;
+}
+
+.h1_comment {
+  color: #999;
+  font-size: 1.4em;
+  line-height: 1.2em;
+  margin-top:5px;
+  display: block;
+}
+
+.page_article {
+  margin: 15px 0px;
+}
+
+.page_article p {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  margin: 8px 0;
+}
+
+@media screen and (max-width: 1024px)
+{
+  .header {position: relative;}
+  .header:after {background: #222; position: absolute; height: 100%; width: 100%; top: 0;z-index: 1;}
+  .header::before {z-index: 3;}
+  .middle {z-index: 3;}
+  .middle {width: 80%; margin: 0 auto;}
+  .menu_overflow {margin-top: 50px;}
+  .menu_opener {display: block; position: absolute; right: 0; top: -50px;}
+  .top_menu {
+    width: 100%;
+    float: none;}
+  .top_logo {
+    position:absolute;
+  }
+  .menu {display: none;;}
+  .menu li {float: none; width: 100%;}
+  .menu li.active:after {border: 0;}
+}
