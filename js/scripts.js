@@ -6,7 +6,6 @@ function resizeContent() {
 var menu_showing = false;
 
 function click_menu () {
-
   if (menu_showing) {
     $(".menu").stop(true, true).slideUp("normal");
     menu_showing = false;
@@ -14,10 +13,12 @@ function click_menu () {
     $(".menu").slideDown("normal");
     menu_showing = true;
   }
-  var clear = setInterval(resizeContent, 16);
+  var clear = setInterval(resizeContent, 1);
   setTimeout(function() {
+    if (!menu_showing)
+      $('.menu').removeAttr('style');
     clearInterval(clear);
-  }, 400);
+  }, 600);
 }
 
 $(document).ready(function () {
@@ -25,4 +26,8 @@ $(document).ready(function () {
   $(window).resize(resizeContent);
 
   $(".menu_opener").on("click", click_menu);
+
+  $('#myModal').modal({
+    
+  });
 });
