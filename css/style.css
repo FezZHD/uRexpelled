@@ -165,10 +165,12 @@ a:hover {
 }
 
 .content {
-  width: 70%;
+  width: 100%;
+  /* width: 70%; */
 }
 
 .side_bar {
+  display: none;
   width: 25%;
   margin-left: 4%;
 }
@@ -221,19 +223,26 @@ a:hover {
   color: #777;
 }
 
-.comment_name {
+.comment_name a {
   color: #777;
   font-size: 1.3em;
   line-height: 1.1em;
+  text-decoration: none;
+}
+.comment_name a:hover {
+  text-decoration: underline;
 }
 
 .comment_date {
   float: right;
+  font-size: 0.8em;
+  margin-right: 10px;
   color: #aaa;
 }
 
 .comment_message {
   margin-top: 5px;
+  padding-right: 10px;
   font-size: 1em;
 }
 
@@ -312,8 +321,62 @@ a:hover {
   text-align: center;
 }
 
+.block_title, .quest {
+  font-size: 1.4em;
+  line-height: 1.3em;
+  padding: 10px;
+}
+
+.block, .quest_block {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  margin: 15px 0;
+}
+
+.block p, .quest_block p {margin: 0;}
+
+.block_message, .answer {
+  width: 100%;
+  border-top: 1px solid #ccc;
+  background: #f1f1f1;
+  padding: 10px 10px;
+}
+
+.profil_photo {
+  max-width: 200px;
+  width: 25%;
+  float:left;
+}
+
+.profil_photo img {
+  max-width: 200px;
+  width: 100%;
+}
+
+.profil_block {
+  margin-top: 10px;
+  margin-left: 220px;
+}
+
+.profil_title {
+  font-size: 1.6em;
+  line-height: 1.4em;
+}
+
+.profil_block_descr {
+  margin: 15px 0;
+}
+
+.profil_block_descr span {
+  font-size: 1.2em;
+}
+
 @media screen and (max-width: 1024px)
 {
+  .profil_block {margin-left: 30%;}
   .header {position: relative;}
   .header:after {background: #222; position: absolute; height: 100%; width: 100%; top: 0;z-index: 1;}
   .header:before {z-index: 3;}
@@ -341,4 +404,6 @@ a:hover {
   .comment_form {width: 100%; padding: 70px 0px 0px; margin: 0;border: 0;}
   .comment_form:after {border: 0;}
   .comment_form:before {border: 0;}
+  .profil_photo {border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px; width: 64px; height: 64px; overflow: hidden; float: none; margin: 0 auto;}
+  .profil_block {margin: 20px 0; text-align: center;}
 }
