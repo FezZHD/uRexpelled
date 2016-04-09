@@ -70,11 +70,15 @@ a:hover {
   position:relative;
 }
 
-.top_logo {
-  font-size: 1.4em;
+.top_logo, .top_logo a:link, .top_logo a:visited, .top_logo a:active, .top_logo a:hover {
   color:#fff;
   line-height: 48px;
   width: 15%;
+  text-decoration: none;
+}
+
+.top_logo a:link, .top_logo a:visited, .top_logo a:active, .top_logo a:hover  {
+  font-size: 1.4em;
 }
 
 .top_menu {
@@ -214,8 +218,8 @@ a:hover {
 .comment_block {
   border-left: 5px solid #eee;
   padding-left: 15px;
+  padding: 10px 0px 10px 15px;
   margin: 10px 0px;
-  cursor: pointer;
 }
 
 .comment_title {
@@ -223,9 +227,12 @@ a:hover {
   color: #777;
 }
 
+.comment_name {
+  font-size: 1.3em;
+  color: #000;
+}
 .comment_name a {
   color: #777;
-  font-size: 1.3em;
   line-height: 1.1em;
   text-decoration: none;
 }
@@ -372,6 +379,17 @@ a:hover {
 
 .profil_block_descr span {
   font-size: 1.2em;
+}
+
+.footer {
+  background: #f1f1f1;
+  padding: 20px 0;
+}
+
+.footer p {
+  padding: 0;
+  margin: 0;
+  font-size: 1.1em;
 }
 
 @media screen and (max-width: 1024px)

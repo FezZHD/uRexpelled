@@ -1,5 +1,5 @@
 function resizeContent() {
-  height = window.innerHeight - $(".header").height();
+  height = window.innerHeight - $(".header").height() - $(".footer").height() - 40;
   $("#page_body").css({'min-height': height});
 }
 
@@ -28,6 +28,6 @@ $(document).ready(function () {
   $(".menu_opener").on("click", click_menu);
 
   $('#myModal').modal({
-    
+
   });
 });
