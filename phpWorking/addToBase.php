@@ -3,10 +3,10 @@
 $host = 'localhost';
 $database = 'site';
 $user = 'root';
-$pswd = '3359';//for unix insert to here your password;
+$pswd = '';//for unix insert to here your password;
 
-$userName = htmlspecialchars($_POST['userName']);
-$message = htmlspecialchars($_POST['userMessage']);
+$userName = htmlspecialchars(addslashes($_POST['userName']));
+$message = htmlspecialchars(addslashes($_POST['userMessage']));
 $date = date("Y-m-d");
 
 $db = mysql_connect($host,$user,$pswd);

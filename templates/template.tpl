@@ -41,11 +41,13 @@
                         </div>
                       </form>
                     </div>
+                    <form>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default">Регистрация</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
                       <button type="button" class="btn btn-primary">Вход</button>
                     </div>
+                  </form>
                   </div>
                 </div>
               </div>
