@@ -29,25 +29,23 @@
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <h4 class="modal-title" id="exampleModalLabel">Авторизация</h4>
                     </div>
+                    <form action="phpWorking/workingForm.php" method="POST">
                     <div class="modal-body">
-                      <form>
                         <div class="form-group">
                           <label for="recipient-name" class="control-label">Логин:</label>
-                          <input type="text" class="form-control" id="recipient-name">
+                          <input type="text" class="form-control" id="login">
                         </div>
                         <div class="form-group">
                           <label for="recipient-name" class="control-label">Пароль:</label>
-                          <input class="form-control" id="recipient-password" type="password">
+                          <input class="form-control" id="password" type="password">
                         </div>
-                      </form>
-                    </div>
-                    <form>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default">Регистрация</button>
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
-                      <button type="button" class="btn btn-primary">Вход</button>
                     </div>
                   </form>
+                    <div class="modal-footer">
+                      <input type="submit" id="registration" onClick="location.href='registration.php'" class="btn btn-default" value="Регистрация"></input>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                      <input type="submit" id="login" value="Вход" class="btn btn-primary"></input>
+                    </div>
                   </div>
                 </div>
               </div>
