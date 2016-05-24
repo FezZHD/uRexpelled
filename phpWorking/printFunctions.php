@@ -8,7 +8,7 @@ function connectToSql()
   $host = 'localhost';
   $database = 'site';
   $user = 'root';
-  $pswd = '3359';
+  $pswd = '';
   @$db = mysql_connect($host,$user,$pswd);
 
   mysql_select_db($database);
@@ -20,6 +20,7 @@ function connectToSql()
   return $db;
 }
 
+
 function sendQuery($query)
 {
   global $db;
@@ -29,6 +30,7 @@ function sendQuery($query)
 
   return $result;
 }
+
 
 function printWithDeleteComments($query)
 {
@@ -51,6 +53,7 @@ function printWithDeleteComments($query)
     </div>';
   }
 }
+
 
 function printComments($query)
 {
@@ -100,6 +103,7 @@ function printFaq($query)
   return $printString;
 }
 
+
 function printStory($query)
 {
   global $db;
@@ -123,6 +127,7 @@ function printStory($query)
     return $printString;
 }
 
+
 function printTopTable($query)
 {
   global $db;
@@ -130,16 +135,28 @@ function printTopTable($query)
   $result = sendQuery($query);
   $index = 1;
   $printString = "";
-  while($row = mysql_fetch_array($result))
+  if (@mysql_num_rows($result) !== 0 )
   {
-    $printString .= '<tr>
-      <td>'.$index.'</td>
-      <td>'.$row['name'].'</td>
-      <td>'.$row['counter'].'</td>
-    </tr>';
+    while($row = mysql_fetch_array($result))
+    {
+      $printString .= '<tr>
+        <td>'.$index.'</td>
+        <td>'.$row['name'].'</td>
+        <td>'.$row['counter'].'</td>
+      </tr>';
 
-    $index++;
+      $index++;
+    }
   }
+  else
+  {
+    $printString = '<tr>
+      <td>none</td>
+      <td>none</td>
+      <td>none</td>
+    </tr>';
+  }
+
 
   mysql_close($db);
   return $printString;

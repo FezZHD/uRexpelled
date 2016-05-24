@@ -22,7 +22,7 @@
           <div class="menu_opener"><i class="fa fa-bars"></i></div>
           <div class="top_login">
             <div class="top_login_icon"><a href="profile.php"><i class="fa fa-user"></i></a></div>
-            <!--from here -->
+            <!-- {LOGIN}from here -->
             <div class="top_login_icon"  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat"><i class="fa fa-user"></i></div>
             <div class="top_login_panel">
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">

@@ -3,7 +3,7 @@
 $host = 'localhost';
 $database = 'site';
 $user = 'root';
-$pswd = '3359';//for unix insert to here your password;
+$pswd = '';//for unix insert to here your password;
 
 $userName = htmlspecialchars(addslashes(trim($_POST['userName'])));
 $message = htmlspecialchars(addslashes(trim($_POST['userMessage'])));
