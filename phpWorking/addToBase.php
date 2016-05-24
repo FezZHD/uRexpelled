@@ -24,13 +24,13 @@ if ($userName == '')
 
 if($message != '')
 {
-$query  = "INSERT INTO comment_db (user_name, comment_text, date_add) VALUES ('$userName', '$message', '$date')";
-$result = mysql_query($query);
+    $query  = "INSERT INTO comment_db (user_name, comment_text, date_add) VALUES ('$userName', '$message', '$date')";
+    $result = mysql_query($query);
 
-if (!$result)
-{
-  die(mysql_error());
-}
+    if (!$result)
+    {
+      die(mysql_error());
+    }
 
 }
 

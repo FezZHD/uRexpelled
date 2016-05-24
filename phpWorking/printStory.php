@@ -10,6 +10,7 @@ include_once('parse_class.php');
 
 $parse->get_tpl('templates/template.tpl');
 
+
 $parse->set_tpl('{MENU_SELECTED}',
 '<li><a href="index.php">Домашняя страница</a></li>
 <li><a href="faq.php">FAQ</a></li>

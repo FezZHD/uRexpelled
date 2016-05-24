@@ -12,11 +12,11 @@ $parse->set_tpl('{MENU_SELECTED}',
 <li><a href="story.php">Охеренные истории</a></li>');
 
 $parse->set_tpl('{CONTENT}',
-'<form>
+'<form enctype="multipart/form-data" method="POST">
   <div class="modal-body">
   <div class="form-group">
     <label for="recipient-name" class="control-label">Ваше имя:</label>
-    <input type="text" class="form-control" id="login">
+    <input type="text" class="form-control" id="name">
   </div>
       <div class="form-group">
         <label for="recipient-name" class="control-label">Логин:</label>
@@ -24,7 +24,7 @@ $parse->set_tpl('{CONTENT}',
       </div>
       <div class="form-group">
         <label for="recipient-name" class="control-label">Ваша почта:</label>
-        <input type="text" class="form-control" id="login">
+        <input type="text" class="form-control" id="email">
       </div>
       <div class="form-group">
         <label for="recipient-name" class="control-label">Пароль:</label>
@@ -35,6 +35,8 @@ $parse->set_tpl('{CONTENT}',
         <input class="form-control" id="repeat_password" type="password">
       </div>
   </div>
+  <input type="file" id="profileAvatarUpload" value="Добавить аватар" accept="image/*" сlass="btn btn-primary"></input>
+  <input type="submit" id="registration" style="margin-top: 10px;" value="Зарегистрировать"  class="btn btn-primary registration"></input>
   </form>');
 
 $parse->tpl_parse();

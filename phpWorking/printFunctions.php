@@ -30,6 +30,28 @@ function sendQuery($query)
   return $result;
 }
 
+function printWithDeleteComments($query)
+{
+  global $db;
+  $result = sendQuery($query);
+
+  $printString = "";
+  while ($row = mysql_fetch_array($result))
+  {
+
+    $printString .='<div class="comment_block">
+      <div class="comment_title">
+        <span class="comment_name">'.$row['user_name'].'</span>
+        <span class="comment_delete"><a href="delete.php?id='.$row['comment_id'].'">Delete</a></span>
+        <span class="comment_date">'.$row['date_add'].'</span>
+      </div>
+      <div class="comment_message">'
+        .$row['comment_text'].'
+      </div>
+    </div>';
+  }
+}
+
 function printComments($query)
 {
   global $db;

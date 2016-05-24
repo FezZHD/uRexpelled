@@ -243,8 +243,22 @@ a:hover {
 .comment_date {
   float: right;
   font-size: 0.8em;
-  margin-right: 10px;
   color: #aaa;
+}
+
+.comment_delete {
+  float: right;
+  margin: 0 10px;
+  font-size: 0.8em;
+}
+.comment_delete a {
+  color: red;
+  font-size: 1em;
+  text-decoration: none;
+}
+.comment_delete a:hover {
+  text-decoration: underline;
+  color: red;
 }
 
 .comment_message {

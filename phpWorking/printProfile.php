@@ -13,7 +13,9 @@ $parse->set_tpl('{MENU_SELECTED}',
 
 $parse->set_tpl('{CONTENT}',
 '  <div class="profil_photo">
-    <img src="media/logo_icon/15636061.jpg" alt="NAVI" title="NAVI" />
+    <img src="media/logo_icon/15636061.jpg" style="margin-bottom: 10px" alt="NAVI" title="NAVI" />
+    <input type="file" id="profileAvatarUpdate" value="Добавить аватар" accept="image/*" сlass="btn btn-primary"></input>
+    <input type="submit" id="updateAvatar" style="margin-top: 10px;" value="Обновить аватар"  class="btn btn-primary registration"></input>
   </div>
   <div class="profil_block">
     <div class="profil_title">
