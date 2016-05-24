@@ -8,7 +8,7 @@ function connectToSql()
   $host = 'localhost';
   $database = 'site';
   $user = 'root';
-  $pswd = '';
+  $pswd = '3359';
   @$db = mysql_connect($host,$user,$pswd);
 
   mysql_select_db($database);
