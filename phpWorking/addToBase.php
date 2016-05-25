@@ -9,7 +9,7 @@ $userName = htmlspecialchars(addslashes(trim($_POST['userName'])));
 $message = htmlspecialchars(addslashes(trim($_POST['userMessage'])));
 $date = date("Y-m-d");
 
-$db = mysql_connect($host,$user,$pswd);
+@$db = mysql_connect($host,$user,$pswd);
 
 mysql_select_db($database);
 

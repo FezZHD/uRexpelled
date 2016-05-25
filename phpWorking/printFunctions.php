@@ -32,6 +32,13 @@ function sendQuery($query)
 }
 
 
+function closeDb()
+{
+  global $db;
+  mysql_close($db);
+}
+
+
 function printWithDeleteComments($query)
 {
   global $db;
@@ -160,4 +167,40 @@ function printTopTable($query)
 
   mysql_close($db);
   return $printString;
+}
+
+
+function printProfile($query)
+{
+  global $db;
+
+  $result = sendQuery($query);
+  $printString = "";
+
+  $row = mysql_fetch_array($result,MYSQL_ASSOC);
+  if ($row['image'] == NULL)
+  {
+    $row['image'] = 'media/default_avatar.png';
+  }
+  $printString = ' <div class="profil_photo">
+    <form action="phpWorking/workProfile.php" enctype="multipart/form-data" method="POST">
+      <img src="'.$row['image'].'" style="margin-bottom: 10px" alt="NAVI" title="NAVI" />
+      <input type="file" id="profileAvatarUpdate" value="Добавить аватар" accept="image/*" сlass="btn btn-primary"></input>
+      <input type="submit" name="updateAvatar" style="margin-top: 10px;" value="Обновить аватар"  class="btn btn-primary"></input>
+      <input type="submit" name="logout" style="margin-top: 10px;" value="Выйти" class="btn btn-default"/>
+    </div>
+    <div class="profil_block">
+      <div class="profil_title">'
+      .$row['name'].'
+      </div>
+      <div class="profil_block_descr">
+        <div class="profil_descr_item">
+          <span class="profil_descr_title">Количество подач заявлений: </span>
+          <span class="profil_descr_message">'.$row['counter'].'</span>
+        </div>
+      </div>
+    </div>';
+    mysql_close($db);
+
+    return $printString;
 }
