@@ -35,8 +35,8 @@ if ( (trim($_POST['name']) !== '') && (trim($_POST['login']) !== '') && (trim($_
         if (($_FILES['profileAvatarUpload']['size']) !== 0)
         {
           $fileName = $_FILES['profileAvatarUpload']['name'];
-          copy($_FILES['profileAvatarUpload']['tmp_name'],"../media/'$fileName'.jpg");
-          $image = addslashes("../media/'$fileName'.jpg");
+          copy($_FILES['profileAvatarUpload']['tmp_name'],"../media/$fileName.jpg");
+          $image = addslashes("../media/$fileName.jpg");
         }
         else
         {

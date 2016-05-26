@@ -1,9 +1,7 @@
 <?php
 
 include_once('printFunctions.php');
-
 $queryResult = printComments("SELECT * FROM comment_db");
-
 include_once('parse_class.php');
 
 $parse->get_tpl('templates/template.tpl');
@@ -21,6 +19,10 @@ if(isset($_SESSION['isAuth']))
 {
   $parse->set_tpl('{LOGIN}',
 '<div class="top_login_icon"><a href="profile.php"><i class="fa fa-user"></i></a></div>');
+  if($_SESSION['isAdmin'] == 1)
+  {
+    $queryResult = printWithDeleteComments("SELECT * FROM comment_db");
+  }
 }
 else
 {
@@ -34,7 +36,7 @@ $parse->set_tpl('{CONTENT}',
 <article>
   <div class="page_article">
     <p>Этот сайт поможет тебе побыстрее всё сделать, чтобы все были довольны.</p>
-    <p>Итак, тебе нужна будет чёртова форма, чтобы заполнить её и с улыбкой принести в деканат.Форму ты найдёшь <a href="#">здесь</a>.</p>
+    <p>Итак, тебе нужна будет чёртова форма, чтобы заполнить её и с улыбкой принести в деканат.Форму ты найдёшь <a href="phpWorking/download.php">здесь</a>.</p>
     <p>После того, как ты заполнишь форму, ты берёшь её и идёшь в деканат, отдаёшь и сваливаешь нахер с универа, чтобы тебя никто не видел.</p>
     <p>Но чтобы ты сидел не без дела, вот тебе <a href="http://rabotavmcdonalds.by/ru/vacancy.html"> анкета в мак</a>. Заполняешь и идёшь довольный работать.</p>
     <p>P.S. Если ты - девушка, то не забудь купить НОРМАЛЬНУЮ СЕТОЧКУ, ЧТОБЫ ТВОИ ВОЛОСЫ НЕ БЫЛИ В МОЁМ БИГМАКЕ !!!111!!!!1!</p>

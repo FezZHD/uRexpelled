@@ -47,11 +47,10 @@ function printWithDeleteComments($query)
   $printString = "";
   while ($row = mysql_fetch_array($result))
   {
-
     $printString .='<div class="comment_block">
       <div class="comment_title">
         <span class="comment_name">'.$row['user_name'].'</span>
-        <span class="comment_delete"><a href="delete.php?id='.$row['comment_id'].'">Delete</a></span>
+        <span class="comment_delete"><a href="phpWorking/delete.php?id='.$row['comment_id'].'">Delete</a></span>
         <span class="comment_date">'.$row['date_add'].'</span>
       </div>
       <div class="comment_message">'
@@ -59,6 +58,7 @@ function printWithDeleteComments($query)
       </div>
     </div>';
   }
+  return $printString;
 }
 
 

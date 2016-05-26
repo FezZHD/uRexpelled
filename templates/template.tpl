@@ -22,9 +22,8 @@
           <div class="menu_opener"><i class="fa fa-bars"></i></div>
           <div class="top_login">
 
-            <!-- {LOGIN}from here -->
           {LOGIN}
-            <!-- to here -->
+
           </div>
             <nav>
               <div class="menu_overflow">

@@ -29,6 +29,7 @@ if(@mysql_num_rows($result) !== 0)
   session_start();
   $_SESSION['isAuth'] = true;
   $_SESSION['ID'] = $arrayResult['ID'];
+  $_SESSION['isAdmin'] = $arrayResult['isAdmin'];
   mysql_close($db);
   exit(header("Location: ../profile.php"));
 }
