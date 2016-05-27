@@ -19,18 +19,18 @@ $query = "SELECT image FROM login WHERE ID='$id'";
 
 $result = mysql_query($query);
 $row = mysql_fetch_row($result);
-
+unlink($row[0]);
 
 if (($_FILES['update']['size']) !== 0)
 {
+
   $fileName = $_FILES['update']['name'];
   copy($_FILES['update']['tmp_name'],"../media/$fileName.jpg");
   $image = addslashes("../media/$fileName.jpg");
 }
 else
 {
-  mysql_close($db);
-  exit(header('Location: ../profile.php'));
+  $image = NULL;
 }
 
 $query = "UPDATE login SET image='$image' WHERE ID='$id'";

@@ -14,7 +14,7 @@ if(isset($_POST['email']))
   mysql_query("SET NAMES 'utf8'");
   mysql_query("SET CHARACTER SET 'utf8'");
   mysql_query("SET SESSION collation_connection = 'utf8_general_ci'");
-  $email = $_POST['email'];
+  $email = htmlspecialchars(addslashes($_POST['email']));
   $query = "SELECT * FROM login WHERE email='$email'";
   $result = mysql_query($query);
   if(!$result)
