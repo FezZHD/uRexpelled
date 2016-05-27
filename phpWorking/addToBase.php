@@ -1,9 +1,9 @@
 <?php
 
 $host = 'localhost';
-$database = 'site';
-$user = 'root';
-$pswd = '';//for unix insert to here your password;
+$database = 'u269436194_site';
+$user = 'u269436194_root';
+$pswd = '13041996';
 
 $userName = htmlspecialchars(addslashes(trim($_POST['userName'])));
 $message = htmlspecialchars(addslashes(trim($_POST['userMessage'])));

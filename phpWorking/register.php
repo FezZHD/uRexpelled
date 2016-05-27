@@ -1,9 +1,9 @@
 <?php
 
 $host = 'localhost';
-$database = 'site';
-$user = 'root';
-$pswd = '';//for unix insert to here your password;
+$database = 'u269436194_site';
+$user = 'u269436194_root';
+$pswd = '13041996';
 
 @$db = mysql_connect($host,$user,$pswd);
 
@@ -49,6 +49,7 @@ if ( (trim($_POST['name']) !== '') && (trim($_POST['login']) !== '') && (trim($_
 
         mysql_query($query);
         mysql_close($db);
+        mail($_POST['email'],'Ваш аккаунт','Логин:'.$_POST['login'].'\nПароль: '.$_POST['password']);
         $header = header("Location: ../index.php");
         exit($header);
       }
