@@ -19,9 +19,9 @@ if(file_exists('../download/form.docx'));
       if (isset($_SESSION['isAuth']))
       {
         $host = 'localhost';
-        $database = 'u269436194_site';
-        $user = 'u269436194_root';
-        $pswd = '13041996';
+        $database = 'site';
+        $user = 'root';
+        $pswd = '';
 
         @$db = mysql_connect($host,$user,$pswd);
 

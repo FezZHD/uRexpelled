@@ -5,9 +5,9 @@ if ((isset($_SESSION['isAdmin'])) && ($_SESSION['isAdmin'] == 1) && (isset($_GET
 {
 
     $host = 'localhost';
-    $database = 'u269436194_site';
-    $user = 'u269436194_root';
-    $pswd = '13041996';
+    $database = 'site';
+    $user = 'root';
+    $pswd = '';
 
     @$db = mysql_connect($host,$user,$pswd);
 

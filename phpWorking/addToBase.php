@@ -1,9 +1,9 @@
 <?php
 
 $host = 'localhost';
-$database = 'u269436194_site';
-$user = 'u269436194_root';
-$pswd = '13041996';
+$database = 'site';
+$user = 'root';
+$pswd = '';
 
 $userName = htmlspecialchars(addslashes(trim($_POST['userName'])));
 $message = htmlspecialchars(addslashes(trim($_POST['userMessage'])));

@@ -516,3 +516,23 @@ Version: '5.6.30'  socket: ''  port: 3306  MySQL Community Server (GPL)
 2016-05-27 02:57:41 5604 [Note] Shutting down plugin 'binlog'
 2016-05-27 02:57:41 5604 [Note] MySQL: Shutdown complete
 
+2016-05-27 10:28:27 2300 [Note] Plugin 'FEDERATED' is disabled.
+2016-05-27 10:28:27 2300 [Note] InnoDB: Using atomics to ref count buffer pool pages
+2016-05-27 10:28:27 2300 [Note] InnoDB: The InnoDB memory heap is disabled
+2016-05-27 10:28:27 2300 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2016-05-27 10:28:27 2300 [Note] InnoDB: Memory barrier is not used
+2016-05-27 10:28:27 2300 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2016-05-27 10:28:27 2300 [Note] InnoDB: Not using CPU crc32 instructions
+2016-05-27 10:28:27 2300 [Note] InnoDB: Initializing buffer pool, size = 128.0M
+2016-05-27 10:28:27 2300 [Note] InnoDB: Completed initialization of buffer pool
+2016-05-27 10:28:27 2300 [Note] InnoDB: Highest supported file format is Barracuda.
+2016-05-27 10:28:28 2300 [Note] InnoDB: 128 rollback segment(s) are active.
+2016-05-27 10:28:28 2300 [Note] InnoDB: Waiting for purge to start
+2016-05-27 10:28:28 2300 [Note] InnoDB: 5.6.30 started; log sequence number 2127559
+2016-05-27 10:28:28 2300 [Note] Server hostname (bind-address): '*'; port: 3306
+2016-05-27 10:28:28 2300 [Note] IPv6 is available.
+2016-05-27 10:28:28 2300 [Note]   - '::' resolves to '::';
+2016-05-27 10:28:28 2300 [Note] Server socket created on IP: '::'.
+2016-05-27 10:28:29 2300 [Note] Event Scheduler: Loaded 0 events
+2016-05-27 10:28:29 2300 [Note] MySQL: ready for connections.
+Version: '5.6.30'  socket: ''  port: 3306  MySQL Community Server (GPL)

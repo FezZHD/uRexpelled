@@ -1,9 +1,9 @@
 <?php
 
 $host = 'localhost';
-$database = 'u269436194_site';
-  $user = 'u269436194_root';
-  $pswd = '13041996';
+$database = 'site';
+  $user = 'root';
+  $pswd = '';
 @$db = mysql_connect($host,$user,$pswd);
 
 mysql_select_db($database);

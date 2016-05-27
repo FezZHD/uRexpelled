@@ -6,9 +6,9 @@ function connectToSql()
 {
   global $db;
   $host = 'localhost';
-  $database = 'u269436194_site';
-  $user = 'u269436194_root';
-  $pswd = '13041996';
+  $database = 'site';
+  $user = 'root';
+  $pswd = '';
   @$db = mysql_connect($host,$user,$pswd);
 
   mysql_select_db($database);
@@ -183,12 +183,12 @@ function printProfile($query)
     $row['image'] = 'media/default_avatar.png';
   }
   $printString = ' <div class="profil_photo">
-    <form action="phpWorking/workProfile.php" enctype="multipart/form-data" method="POST">
+    <form  action="phpWorking/updateAvatar.php" enctype="multipart/form-data" method="POST">
       <img src="'.$row['image'].'" style="margin-bottom: 10px" alt="NAVI" title="NAVI" />
-      <input type="file" id="profileAvatarUpdate" value="Добавить аватар" accept="image/*" сlass="btn btn-primary"></input>
+      <input type="file" name="update" accept="image/*" сlass="btn btn-primary"></input>
       <input type="submit" name="updateAvatar" style="margin-top: 10px;" value="Обновить аватар"  class="btn btn-primary"></input>
-      <input type="submit" name="logout" style="margin-top: 10px;" value="Выйти" class="btn btn-default"/>
     </div>
+    </form>
     <div class="profil_block">
       <div class="profil_title">'
       .$row['name'].'
@@ -198,6 +198,9 @@ function printProfile($query)
           <span class="profil_descr_title">Количество подач заявлений: </span>
           <span class="profil_descr_message">'.$row['counter'].'</span>
         </div>
+        <form action="phpWorking/logout.php" method="POST">
+          <div><input type="submit" name="logout" style="margin-top: 10px;" value="Выйти" class="btn btn-default"/></div>
+        </form>
       </div>
     </div>';
     mysql_close($db);

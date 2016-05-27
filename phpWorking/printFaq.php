@@ -11,16 +11,13 @@ include_once('parse_class.php');
 $parse->get_tpl('templates/template.tpl');
 
 $parse->set_tpl('{MENU_SELECTED}',
-'<li><a href="index.php">Домашняя страница</a></li>
-<li class="active"><a href="faq.php">FAQ</a></li>
-<li><a href="top.php">Наши "лучшие клиенты"</a></li>
-<li><a href="story.php">Охеренные истории</a></li>');
+file_get_contents('templates/menuFAQ.tpl'));
 
 session_start();
 if(isset($_SESSION['isAuth']))
 {
   $parse->set_tpl('{LOGIN}',
-'<div class="top_login_icon"><a href="profile.php"><i class="fa fa-user"></i></a></div>');
+  file_get_contents('templates/auth.tpl'));
 }
 else
 {
@@ -29,12 +26,7 @@ else
 }
 
 $parse->set_tpl('{CONTENT}',
-'  <h1>Вопросы для аутистов:</h1>
-  <span class="h1_comment">Если у тебя есть вопрос, то нам как-то пофиг... </span>
-  <section>'
-  .$queryResult.'
-  </section>
-');
+str_replace('{RESULT}',$queryResult,file_get_contents('templates/faqContent.tpl')));
 
 $parse->tpl_parse();
 

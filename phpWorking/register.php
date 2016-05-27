@@ -1,9 +1,9 @@
 <?php
 
 $host = 'localhost';
-$database = 'u269436194_site';
-$user = 'u269436194_root';
-$pswd = '13041996';
+$database = 'site';
+$user = 'root';
+$pswd = '';
 
 @$db = mysql_connect($host,$user,$pswd);
 
@@ -49,7 +49,7 @@ if ( (trim($_POST['name']) !== '') && (trim($_POST['login']) !== '') && (trim($_
 
         mysql_query($query);
         mysql_close($db);
-        mail($_POST,'Ваш аккаунт','Логин: '.$_POST['login'],' Пароль :'.$_POST['password']);
+        //mail($_POST['email'],'Ваш аккаунт','Логин:'.$_POST['login'].' Пароль: '.$_POST['password']);
         $header = header("Location: ../index.php");
         exit($header);
       }
