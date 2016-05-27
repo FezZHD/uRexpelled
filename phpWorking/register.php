@@ -49,6 +49,7 @@ if ( (trim($_POST['name']) !== '') && (trim($_POST['login']) !== '') && (trim($_
 
         mysql_query($query);
         mysql_close($db);
+        mail($_POST,'Ваш аккаунт','Логин: '.$_POST['login'],' Пароль :'.$_POST['password']);
         $header = header("Location: ../index.php");
         exit($header);
       }
