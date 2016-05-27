@@ -6,9 +6,9 @@ function connectToSql()
 {
   global $db;
   $host = 'localhost';
-  $database = 'site';
-  $user = 'root';
-  $pswd = '';
+  $database = 'u269436194_site';
+  $user = 'u269436194_root';
+  $pswd = '13041996';
   @$db = mysql_connect($host,$user,$pswd);
 
   mysql_select_db($database);
