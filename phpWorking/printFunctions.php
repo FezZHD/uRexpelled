@@ -45,18 +45,13 @@ function printWithDeleteComments($query)
   $result = sendQuery($query);
 
   $printString = "";
+  $arrayReplace  = array('{USER}', '{DATE}', '{ID}', '{TEXT}');
   while ($row = mysql_fetch_array($result))
   {
-    $printString .='<div class="comment_block">
-      <div class="comment_title">
-        <span class="comment_name">'.$row['user_name'].'</span>
-        <span class="comment_delete"><a href="phpWorking/delete.php?id='.$row['comment_id'].'">Delete</a></span>
-        <span class="comment_date">'.$row['date_add'].'</span>
-      </div>
-      <div class="comment_message">'
-        .$row['comment_text'].'
-      </div>
-    </div>';
+    $arrayInfo = array($row['user_name'], $row['date_add'], $row['comment_id'], $row['comment_text']);
+    $templateString = file_get_contents('templates/commentAdmin.tpl');
+    $templateString = str_replace($arrayReplace, $arrayInfo, $templateString);
+    $printString .=$templateString;
   }
   return $printString;
 }
@@ -68,18 +63,13 @@ function printComments($query)
   $result = sendQuery($query);
 
   $printString = "";
+  $arrayReplace  = array('{USER}', '{DATE}', '{TEXT}');
   while ($row = mysql_fetch_array($result))
   {
-
-    $printString .='<div class="comment_block">
-      <div class="comment_title">
-        <span class="comment_name">'.$row['user_name'].'</span>
-        <span class="comment_date">'.$row['date_add'].'</span>
-      </div>
-      <div class="comment_message">'
-        .$row['comment_text'].'
-      </div>
-    </div>';
+    $arrayInfo = array($row['user_name'], $row['date_add'], $row['comment_text']);
+    $templateString = file_get_contents('templates/commentUser.tpl');
+    $templateString = str_replace($arrayReplace, $arrayInfo, $templateString);
+    $printString .=$templateString;
   }
 
   mysql_close($db);
@@ -94,16 +84,14 @@ function printFaq($query)
 
   $result = sendQuery($query);
   $printString = "";
+  $arrayReplace  = array('{QUESTION}', '{ANSWER}');
   while ($row = mysql_fetch_array($result))
   {
     $questionString = $row['ID'].'.'.$row['question'];
-
-    $printString .='<div class="quest_block">
-      <div class="quest">'.$questionString.'</div>
-      <div class="answer">
-        <p>'.$row['answer'].'</p>
-      </div>
-    </div>';
+    $arrayInfo = array($questionString, $row['answer']);
+    $templateString = file_get_contents('templates/faqTemplate.tpl');
+    $templateString = str_replace($arrayReplace,$arrayInfo,$templateString);
+    $printString .=$templateString;
   }
 
   mysql_close($db);
@@ -120,15 +108,11 @@ function printStory($query)
   $printString = "";
 
   $row = mysql_fetch_array($result);
-
-  $printString =   '<div class="block_title">'
-      .$row['story_title'].'
-    </div>
-    <div class="block_message">
-      <p>
-      '.$row['story_text'].'
-      </p>
-    </div>';
+  $arrayReplace  = array('{TITLE}', '{TEXT}');
+  $arrayInfo = array($row['story_title'], $row['story_text']);
+  $templateString = file_get_contents('templates/storyTemplate.tpl');
+  $templateString = str_replace($arrayReplace, $arrayInfo, $templateString);
+  $printString = $templateString;
 
     mysql_close($db);
     return $printString;
@@ -142,26 +126,23 @@ function printTopTable($query)
   $result = sendQuery($query);
   $index = 1;
   $printString = "";
+  $arrayReplace  = array('{INDEX}', '{NAME}','{COUNT}');
   if (@mysql_num_rows($result) !== 0 )
   {
     while($row = mysql_fetch_array($result))
     {
-      $printString .= '<tr>
-        <td>'.$index.'</td>
-        <td>'.$row['name'].'</td>
-        <td>'.$row['counter'].'</td>
-      </tr>';
-
+      $arrayInfo = array($index, $row['name'], $row['counter']);
+      $templateString = file_get_contents('templates/tableContent.tpl');
+      $templateString = str_replace($arrayReplace,$arrayInfo,$templateString);
+      $printString .= $templateString;
       $index++;
     }
   }
   else
   {
-    $printString = '<tr>
-      <td>none</td>
-      <td>none</td>
-      <td>none</td>
-    </tr>';
+    $templateString = file_get_contents('templates/tableContent.tpl');
+    $templateString = str_replace($arrayReplace,'none',$templateString);
+    $printString = $templateString;
   }
 
 
@@ -176,34 +157,17 @@ function printProfile($query)
 
   $result = sendQuery($query);
   $printString = "";
-
+  $templateString = file_get_contents('templates/profileContent.tpl');
   $row = mysql_fetch_array($result,MYSQL_ASSOC);
   if ($row['image'] == NULL)
   {
     $row['image'] = 'media/default_avatar.png';
   }
-  $printString = ' <div class="profil_photo">
-    <form  action="phpWorking/updateAvatar.php" enctype="multipart/form-data" method="POST">
-      <img src="'.$row['image'].'" style="margin-bottom: 10px" alt="NAVI" title="NAVI" />
-      <input type="file" name="update" accept="image/*" сlass="btn btn-primary"></input>
-      <input type="submit" name="updateAvatar" style="margin-top: 10px;" value="Обновить аватар"  class="btn btn-primary"></input>
-    </div>
-    </form>
-    <div class="profil_block">
-      <div class="profil_title">'
-      .$row['name'].'
-      </div>
-      <div class="profil_block_descr">
-        <div class="profil_descr_item">
-          <span class="profil_descr_title">Количество подач заявлений: </span>
-          <span class="profil_descr_message">'.$row['counter'].'</span>
-        </div>
-        <form action="phpWorking/logout.php" method="POST">
-          <div><input type="submit" name="logout" style="margin-top: 10px;" value="Выйти" class="btn btn-default"/></div>
-        </form>
-      </div>
-    </div>';
-    mysql_close($db);
+  $arrayReplace  = array('{IMAGE}', '{NAME}', '{COUNT}');
+  $arrayInfo = array($row['image'], $row['name'], $row['counter']);
+  $templateString = str_replace($arrayReplace,$arrayInfo,$templateString);
+  $printString = $templateString;
+  mysql_close($db);
 
-    return $printString;
+  return $printString;
 }
